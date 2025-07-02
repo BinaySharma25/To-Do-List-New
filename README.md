@@ -7,5 +7,7 @@ Built a To-Do List Web App using HTML, CSS, and JavaScript to manage daily tasks
  
  This project helped strengthen my skills in DOM manipulation, event handling, and front-end logic.
 
+ Link: https://to-do-listbinay.netlify.app/
+
 Screenshot 
 ![image alt](https://github.com/BinaySharma25/To-Do-List-New/blob/main/Assets/To-Do%20List.png?raw=true)
