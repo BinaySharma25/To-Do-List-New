@@ -17,28 +17,60 @@
 
 body {
   font-family: sans-serif;
-  background: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+  background: linear-gradient(120deg, #b7eaff 0%, #e0c3fc 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   color: var(--dark);
+  transition: background 0.5s, color 0.3s;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #232526 0%, #3a3a5d 50%, #1a1a2e 100%);
+  color: var(--light);
+  transition: background 0.5s, color 0.3s;
+}
+
+body.dark-mode .app {
+  background: rgba(35, 37, 38, 0.85);
+  color: var(--light);
+  box-shadow: 0 10px 32px 0 rgba(80, 0, 120, 0.25), 0 1.5px 8px 0 rgba(0,0,0,0.25);
+  border-radius: 18px;
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1.5px solid rgba(120, 80, 200, 0.18);
+  transition: background 0.5s, box-shadow 0.4s, border 0.4s;
+}
+
+body.dark-mode header {
+  background: linear-gradient(90deg, #18181b 60%, #2d1e4f 100%);
+  color: var(--light);
+  border-bottom: 1px solid rgba(120, 80, 200, 0.18);
+  transition: background 0.5s, color 0.3s;
 }
 
 .app {
   width: 100%;
   max-width: 500px;
-  background-color: #fff;
-  border-radius: 12px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 32px 0 rgba(119, 73, 248, 0.08), 0 1.5px 8px 0 rgba(0,0,0,0.06);
+  backdrop-filter: blur(10px) saturate(120%);
+  border: 1.5px solid rgba(119, 73, 248, 0.08);
+  transition: background 0.5s, box-shadow 0.4s, border 0.4s;
+  position: relative;
 }
 
 header {
-  background-color: var(--primary);
-  color: white;
-  padding: 20px 25px;
+  background: linear-gradient(90deg, var(--primary) 60%, #a084fa 100%);
+  color: #fff;
+  padding: 24px 28px 20px 28px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 2px 8px 0 rgba(119, 73, 248, 0.06);
+  transition: background 0.5s, color 0.3s;
 }
 
 header h1 {
@@ -62,48 +94,99 @@ header p {
 }
 
 .todo-input {
-  padding: 20px 25px;
+  padding: 20px 28px;
   display: flex;
   gap: 10px;
-  background-color: var(--light);
-  border-bottom: 1px solid var(--border);
+  background: rgba(248, 249, 250, 0.7);
+  border-bottom: 1.5px solid #e9e4f0;
+  transition: background 0.5s, border 0.4s;
+}
+
+body.dark-mode .todo-input {
+  background: rgba(35, 37, 38, 0.7);
+  border-bottom: 1px solid #3a2d5d;
+  transition: background 0.5s, border 0.4s;
 }
 
 .todo-input input {
   flex: 1;
   padding: 12px 15px;
-  border: 1px solid #dee2e6;
+  border: 1.5px solid #e9e4f0;
   font-size: 1rem;
   transition: all 0.2s;
   border-radius: 6px;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 2px 8px 0 rgba(119, 73, 248, 0.04);
+  backdrop-filter: blur(2px);
+}
+
+body.dark-mode .todo-input input {
+  background: rgba(24, 24, 27, 0.85);
+  color: var(--light);
+  border: 1.5px solid #3a2d5d;
+  transition: background 0.5s, color 0.3s, border 0.4s;
 }
 
 .todo-input input:focus {
   outline: none;
   border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(119, 73, 248, 0.10);
+  background: rgba(244, 240, 255, 0.95);
+}
+
+body.dark-mode .todo-input input:focus {
+  border-color: var(--primary-light);
   box-shadow: 0 0 0 3px rgba(119, 73, 248, 0.15);
 }
 
 .todo-input button {
-  background-color: var(--primary);
-  color: white;
-  width: 40px;
-  height: 40px;
+  background: linear-gradient(90deg, var(--primary) 60%, #a084fa 100%);
+  color: #fff;
+  width: 44px;
+  height: 44px;
   border: none;
-  border-radius: 6px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: all 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(119, 73, 248, 0.10);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, box-shadow 0.3s, color 0.2s;
+}
+
+body.dark-mode .todo-input button {
+  background: linear-gradient(90deg, var(--primary-light) 60%, #7f53ac 100%);
+  box-shadow: 0 2px 8px 0 rgba(119, 73, 248, 0.15);
+  color: #fff;
+  transition: background 0.4s, box-shadow 0.3s;
+}
+
+body.dark-mode .todo-input button:hover {
+  background: linear-gradient(90deg, #a084fa 60%, var(--primary) 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px 0 rgba(119, 73, 248, 0.15);
 }
 
 .todo-input button:hover {
-  background-color: var(--primary-light);
+  background: linear-gradient(90deg, #a084fa 60%, var(--primary) 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px 0 rgba(119, 73, 248, 0.15);
 }
 
 .filters {
   display: flex;
   gap: 15px;
-  border-bottom: 1px solid var(--border);
-  padding: 15px 25px;
+  border-bottom: 1.5px solid #e9e4f0;
+  padding: 15px 28px;
+  background: rgba(248, 249, 250, 0.7);
+  transition: background 0.5s, border 0.4s;
+}
+
+body.dark-mode .filters {
+  border-bottom: 1px solid #3a2d5d;
+  background: rgba(35, 37, 38, 0.7);
+  transition: background 0.5s, border 0.4s;
 }
 
 .filter {
@@ -111,23 +194,44 @@ header p {
   cursor: pointer;
   color: var(--gray);
   border-bottom: 2px solid transparent;
-  transition: all 0.2s;
+  border-radius: 4px 4px 0 0;
+  transition: color 0.2s, border 0.2s, background 0.2s;
+  padding: 6px 12px;
+  font-weight: 500;
+}
+
+body.dark-mode .filter {
+  color: #bdbdfc;
+  transition: color 0.3s, border 0.3s;
 }
 
 .filter:hover {
   color: var(--primary);
+  background: rgba(119, 73, 248, 0.08);
 }
 
 .filter.active {
   color: var(--primary);
   border-bottom: 2px solid var(--primary);
   font-weight: 500;
+  background: rgba(119, 73, 248, 0.10);
+  box-shadow: 0 2px 8px 0 rgba(119, 73, 248, 0.04);
+}
+
+body.dark-mode .filter.active {
+  color: var(--primary-light);
+  border-bottom: 2px solid var(--primary-light);
+  text-shadow: 0 2px 8px rgba(119, 73, 248, 0.15);
 }
 
 .todos-container {
   padding: 15px 0;
   max-height: 300px;
   overflow-y: auto;
+}
+
+body.dark-mode .todos-container {
+  background: transparent;
 }
 
 #todos-list {
@@ -138,11 +242,30 @@ header p {
   padding: 12px 15px;
   display: flex;
   align-items: center;
-  transition: background-color 0.2s;
+  border-radius: 8px;
+  margin: 0 10px 8px 10px;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 1px 4px 0 rgba(119, 73, 248, 0.04);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+body.dark-mode .todo-item {
+  background: rgba(35, 37, 38, 0.6);
+  color: var(--light);
+  border-radius: 8px;
+  margin-bottom: 6px;
+  box-shadow: 0 1px 4px 0 rgba(119, 73, 248, 0.08);
+  transition: background 0.4s, color 0.3s;
+}
+
+body.dark-mode .todo-item.completed .todo-item-text {
+  color: #8888b2;
+  text-shadow: none;
 }
 
 .todo-item:hover {
-  background-color: var(--light);
+  background: #f4f0ff;
+  box-shadow: 0 2px 8px 0 rgba(119, 73, 248, 0.08);
 }
 
 .checkbox-container {
@@ -158,16 +281,24 @@ header p {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 2px solid #dee2e6;
+  border: 2px solid #e9e4f0;
   border-radius: 4px;
   position: relative;
   cursor: pointer;
   transition: all 0.2s;
+  background: rgba(255,255,255,0.7);
+}
+
+body.dark-mode .checkmark {
+  border: 2px solid #5a4b8b;
+  background: #18181b;
+  transition: border 0.3s, background 0.3s;
 }
 
 .todo-checkbox:checked + .checkmark {
   background-color: var(--success);
   border-color: var(--success);
+  box-shadow: 0 0 8px 0 rgba(64, 192, 87, 0.10);
 }
 
 .todo-checkbox:checked + .checkmark::after {
@@ -182,6 +313,11 @@ header p {
   transform: rotate(45deg);
 }
 
+body.dark-mode .todo-checkbox:checked + .checkmark {
+  background-color: var(--success);
+  border-color: var(--success);
+}
+
 .todo-item-text {
   flex: 1;
   font-size: 1rem;
@@ -191,6 +327,11 @@ header p {
 .todo-item.completed .todo-item-text {
   text-decoration: line-through;
   color: var(--gray);
+}
+
+body.dark-mode .todo-item.completed .todo-item-text {
+  color: #8888b2;
+  text-shadow: none;
 }
 
 .delete-btn {
@@ -203,11 +344,20 @@ header p {
   transition: all 0.2s;
 }
 
+body.dark-mode .delete-btn {
+  color: #bdbdfc;
+  transition: color 0.3s;
+}
+
 .todo-item:hover .delete-btn {
   opacity: 1;
 }
 
 .delete-btn:hover {
+  color: var(--danger);
+}
+
+body.dark-mode .delete-btn:hover {
   color: var(--danger);
 }
 
@@ -218,6 +368,19 @@ header p {
   justify-content: center;
   padding: 40px 0;
   color: var(--gray);
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  margin: 20px 10px;
+  box-shadow: 0 2px 8px 0 rgba(119, 73, 248, 0.04);
+}
+
+body.dark-mode .empty-state {
+  color: #8888b2;
+  text-shadow: 0 2px 8px rgba(119, 73, 248, 0.08);
+  background: rgba(35,37,38,0.85);
+  border-radius: 12px;
+  margin: 20px 10px;
+  box-shadow: 0 2px 8px 0 rgba(80, 0, 120, 0.10);
 }
 
 .empty-state i {
@@ -234,10 +397,21 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
-  border-top: 1px solid var(--border);
-  background-color: var(--light);
-  font-size: 14px;
+  padding: 18px 28px;
+  border-top: 1.5px solid #e9e4f0;
+  background: rgba(248, 249, 250, 0.7);
+  font-size: 15px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  box-shadow: 0 -2px 8px 0 rgba(119, 73, 248, 0.04);
+  transition: background 0.5s, color 0.3s, border 0.4s;
+}
+
+body.dark-mode footer {
+  background: rgba(35, 37, 38, 0.7);
+  border-top: 1px solid #3a2d5d;
+  color: #bdbdfc;
+  transition: background 0.5s, color 0.3s, border 0.4s;
 }
 
 #items-left {
@@ -250,8 +424,150 @@ footer {
   color: var(--gray);
   cursor: pointer;
   transition: all 0.2s;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+body.dark-mode #clear-completed {
+  color: #bdbdfc;
+  transition: color 0.3s;
 }
 
 #clear-completed:hover {
   color: var(--danger);
+  background: rgba(250, 82, 82, 0.08);
+}
+
+body.dark-mode #clear-completed:hover {
+  color: var(--danger);
+}
+
+#dark-mode-toggle {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(119, 73, 248, 0.12);
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 8px 10px;
+  box-shadow: 0 2px 8px 0 rgba(119, 73, 248, 0.10);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+#dark-mode-toggle:hover {
+  background: rgba(119, 73, 248, 0.25);
+  color: var(--primary-light);
+}
+
+body.dark-mode #dark-mode-toggle {
+  color: var(--primary-light);
+  background: rgba(119, 73, 248, 0.18);
+  box-shadow: 0 2px 12px 0 rgba(119, 73, 248, 0.18);
+}
+
+.edit-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1.5px solid var(--primary);
+  border-radius: 6px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--dark);
+  transition: background 0.3s, border 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 12px 0 rgba(119, 73, 248, 0.08), 0 1.5px 8px 0 rgba(0,0,0,0.06);
+  backdrop-filter: blur(4px);
+}
+
+.edit-input:focus {
+  border-color: var(--primary-light);
+  background: rgba(244, 240, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(119, 73, 248, 0.15), 0 2px 12px 0 rgba(119, 73, 248, 0.10);
+}
+
+body.dark-mode .edit-input {
+  background: rgba(35, 37, 38, 0.85);
+  color: var(--light);
+  border: 1.5px solid var(--primary-light);
+  box-shadow: 0 2px 12px 0 rgba(119, 73, 248, 0.10);
+}
+
+body.dark-mode .edit-input:focus {
+  border-color: #a084fa;
+  background: rgba(35, 37, 38, 0.95);
+  box-shadow: 0 0 0 3px rgba(119, 73, 248, 0.18);
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 6px;
+  }
+  .app {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 0 0 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px 0 rgba(119, 73, 248, 0.10);
+  }
+  header {
+    padding: 18px 10px 14px 16px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    font-size: 1.1em;
+  }
+  .todo-input {
+    padding: 14px 10px;
+    gap: 8px;
+  }
+  .todo-input input {
+    font-size: 1.08em;
+    padding: 12px 10px;
+  }
+  .todo-input button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+  }
+  .filters {
+    padding: 10px 10px;
+    gap: 10px;
+    font-size: 1em;
+  }
+  .filter {
+    padding: 6px 8px;
+    font-size: 1em;
+  }
+  .todos-container {
+    padding: 10px 0;
+    max-height: 60vh;
+  }
+  .todo-item {
+    padding: 10px 8px;
+    margin: 0 2px 6px 2px;
+    font-size: 1em;
+  }
+  .empty-state {
+    margin: 14px 2px;
+    padding: 28px 0;
+    font-size: 1em;
+  }
+  footer {
+    padding: 12px 10px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    font-size: 1em;
+  }
+  #dark-mode-toggle {
+    top: 10px;
+    right: 10px;
+    font-size: 1.1em;
+    padding: 7px 8px;
+  }
 }
