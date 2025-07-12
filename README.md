@@ -9,5 +9,9 @@ Built a To-Do List Web App using HTML, CSS, and JavaScript to manage daily tasks
 
  Link: https://to-do-listbinay.netlify.app/
 
-Screenshot 
-![image alt](https://github.com/BinaySharma25/To-Do-List-New/blob/main/Assets/To-Do%20List.png?raw=true)
+Screenshots:
+In Light Mode
+![image alt](https://github.com/BinaySharma25/To-Do-List-New/blob/main/Assets/To-do_light.png?raw=true)
+
+In Dark Mode
+![image alt](https://github.com/BinaySharma25/To-Do-List-New/blob/main/Assets/To-do_dark.png?raw=true)
