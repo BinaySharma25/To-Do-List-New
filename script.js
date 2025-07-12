@@ -7,6 +7,7 @@ const clearCompletedBtn = document.getElementById("clear-completed");
 const emptyState = document.querySelector(".empty-state");
 const dateElement = document.getElementById("date");
 const filters = document.querySelectorAll(".filter");
+const darkModeToggle = document.getElementById("dark-mode-toggle");
 
 let todos = [];
 let currentFilter = "all";
@@ -194,6 +195,26 @@ function setDate() {
   dateElement.textContent = today.toLocaleDateString("en-US", options);
 }
 
+function setDarkMode(isDark) {
+  document.body.classList.toggle("dark-mode", isDark);
+  const icon = darkModeToggle.querySelector("i");
+  if (isDark) {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+    darkModeToggle.setAttribute("aria-label", "Switch to light mode");
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+    darkModeToggle.setAttribute("aria-label", "Switch to dark mode");
+  }
+}
+
+darkModeToggle.addEventListener("click", () => {
+  const isDark = !document.body.classList.contains("dark-mode");
+  setDarkMode(isDark);
+  localStorage.setItem("darkMode", isDark ? "1" : "0");
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   loadTodos();
   updateItemsCount();
@@ -201,4 +222,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // Restore filter from localStorage
   const savedFilter = localStorage.getItem("currentFilter");
   if (savedFilter) setActiveFilter(savedFilter);
+  // Restore dark mode
+  const darkModePref = localStorage.getItem("darkMode");
+  setDarkMode(darkModePref === "1");
 });
